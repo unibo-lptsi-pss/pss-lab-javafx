@@ -28,15 +28,13 @@ public class TodoAppImpl implements TodoAppObservable  {
 
     @Override
     public Todo addNewTodo(String content) {
-        var todo = new Todo(content);
-        todos.add(todo); // add provoca un evento di aggiornamento
-        return todo;
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
+    // usa remove per eliminare un todo dalla lista dei todos e aggiungerlo alla lista dei completedTodos
     @Override
     public void completeTodo(Todo todo) {
-        todos.remove(todo); // remove provoca un evento di aggiornamento
-        completedTodos.add(todo);
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override
