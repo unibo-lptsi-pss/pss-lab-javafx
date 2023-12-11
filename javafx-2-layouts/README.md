@@ -26,7 +26,7 @@ Questo esercizio mira a sviluppare una comprensione pratica dei layout in JavaFX
   - **Nota:** Impiega il metodo `setHgrow` con la costante `Priority.ALWAYS` per assicurare che le due parti occupino lo stesso spazio.
 
 ### Aggiunta di Stile alla GUI
-- Esplora e applica il file di stile fornito per migliorare l'aspetto della GUI: [style.css](./without-style.png).
-- Ci sono due file di stile: uno per il tema generale e uno specifico per questa applicazione.
+- Esplora e applica il file di stile fornito per migliorare l'aspetto della GUI, il risultato dovrà essere come segue ![](./without-style.png).
+- Ci sono due file di stile: uno per il tema generale e uno specifico per questa applicazione. Quello dell'applicazione è in css/style.css. L'altro è dracula.css.
 - Modifica il codice aggiungendo classi CSS e identificatori appropriati, facendo riferimento ai file di stile.
   - Ad esempio, per i titoli, puoi usare le classi `title-1`, `title-2`, `title-3`.
