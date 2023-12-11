@@ -15,15 +15,19 @@ public class App extends Application {
         final VBox mainPane = new VBox();
         final Counter counter = new Counter();
         final Label label = new Label();
-        label.textProperty().bind(counter.counterProperty().asString());
-        final HBox buttons = new HBox();
+        label.textProperty().bind(counter.counterProperty().asString()); // Connetto la proprietà counterProperty() al testo della label.
+        final HBox buttons = new HBox(); // HBox è un contenitore che allinea i figli in orizzontale. Qui contiene due bottoni.
         final Button increment = new Button("+");
         final Button decrement = new Button("-");
+        // Imposto la larghezza minima dei bottoni.
         increment.setMinWidth(100);
         decrement.setMinWidth(100);
+        // Metto in ascolto gli eventi di click dei bottoni, quando vengono premuti incremento/decremento il contatore.
         increment.setOnAction(e -> counter.increment());
         decrement.setOnAction(e -> counter.decrement());
+        // Aggiungo i bottoni al contenitore.
         buttons.getChildren().addAll(increment, decrement);
+        // Aggiungo i nodi al contenitore principale.
         mainPane.getChildren().addAll(label, buttons);
         primaryStage.setScene(new Scene(mainPane));
         primaryStage.show();

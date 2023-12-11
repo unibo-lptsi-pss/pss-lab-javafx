@@ -22,11 +22,14 @@ public class TodoAppHandler {
     @FXML
     private VBox tasksDone;
     public TodoAppHandler() {
-        this.model = new TodoAppImpl();
+        this.model = new TodoAppImpl(); // creo il modello, la logica dell'applicazione
+        // aggiungo un listener sulla lista dei todos
         this.model.todosProperty().addListener((observable, oldValue, newValue) -> updateTodos(newValue));
+        // aggiungo un listener sulla lista dei completedTodos
         this.model.completedTodosProperty().addListener((observable, oldValue, newValue) -> updateDone(newValue));
     }
 
+    // Handler da eseguire quando si preme il bottone "Add"
     @FXML
     public final void addTodo(final MouseEvent evt) {
         if(Objects.nonNull(todoText.getText()) && !todoText.getText().isEmpty()) {
@@ -34,16 +37,21 @@ public class TodoAppHandler {
         }
     }
 
+    // Aggiornamento dei todos, vengono tolti tutti quelli presenti e aggiunti quelli nuovi
     private void updateTodos(List<Todo> todos) {
         tasksTodo.getChildren().clear();
         todos.forEach(this::insertTodoGraphic);
     }
 
+    // Aggiornamento dei completedTodos, vengono tolti tutti quelli presenti e aggiunti quelli nuovi
     private void updateDone(List<Todo> todos) {
         tasksDone.getChildren().clear();
         todos.forEach(this::insertCompleted);
     }
 
+    // Inserisce un nuovo todo nella lista dei todos
+    // Un todo e composta da un testo e da un bottone per eliminarlo
+    // il bottone viene associato ad un evento che chiama il metodo completeTodo del modello!!
     private void insertTodoGraphic(Todo todo) {
         var todoGraphic = new HBox();
         todoGraphic.getStyleClass().add("task");
@@ -55,6 +63,8 @@ public class TodoAppHandler {
         tasksTodo.getChildren().add(todoGraphic);
     }
 
+    // Inserisce un nuovo todo nella lista dei completedTodos
+    // qui ci sarà solo il testo del todo
     private void insertCompleted(Todo todo) {
         var todoGraphic = new HBox();
         todoGraphic.getStyleClass().add("task");

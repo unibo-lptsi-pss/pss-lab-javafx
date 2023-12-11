@@ -1,5 +1,3 @@
-
-
 # Esercizio sulle proprietà di JavaFX
 
 Questo esercizio si concentra sull'utilizzo delle properties di JavaFX, una caratteristica chiave del framework. Per approfondimenti, consulta la [documentazione JavaFX](https://docs.oracle.com/javase/8/javafx/api/javafx/beans/property/Property.html).
