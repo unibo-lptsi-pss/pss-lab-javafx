@@ -7,12 +7,11 @@ import javafx.collections.FXCollections;
 import java.util.List;
 
 public class TodoAppImpl implements TodoAppObservable  {
-    private final ListProperty<Todo> todos;
+    private final ListProperty<Todo> todos; // ho una lista di todos, ma osservabile
     private final ListProperty<Todo> completedTodos;
 
-    private int idCounter = 0;
-
     public TodoAppImpl() {
+        // creo una lista osservabile di todos e di completedTodos
         this.todos = new SimpleListProperty<>(FXCollections.observableArrayList());
         this.completedTodos = new SimpleListProperty<>(FXCollections.observableArrayList());
     }
@@ -29,14 +28,14 @@ public class TodoAppImpl implements TodoAppObservable  {
 
     @Override
     public Todo addNewTodo(String content) {
-        var todo = new Todo(idCounter++, content);
-        todos.add(todo);
+        var todo = new Todo(content);
+        todos.add(todo); // add provoca un evento di aggiornamento
         return todo;
     }
 
     @Override
     public void completeTodo(Todo todo) {
-        todos.remove(todo);
+        todos.remove(todo); // remove provoca un evento di aggiornamento
         completedTodos.add(todo);
     }
 

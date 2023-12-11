@@ -16,46 +16,34 @@ import javafx.stage.Stage;
 public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        /** Create a todo list application with a list of tasks and a form to add new tasks.
-         * the pane has two part.
-         * On the left there is a pane to add new todo items. They are only composed of a text field and a button to add it
-         * The pane should has a title and a border (on the right)
-         * In the right part, there is another pane with a title.
-         * Inside the pane, on the left there are the todo items to do and on the right the todo items done.
-         * The todo items are composed of a label with the text and a button to mark it as done.
-         * The pane should has a title and a border (on the right)
-         * */
-
+        // Il root è un BorderPane, che divide la finestra in 5 aree: top, bottom, left, right, center.
+        // Noi usiamo solo left e center.
         BorderPane root = new BorderPane();
+        // Aggiungo i fogli di stile
         root.getStylesheets().add("dracula.css");
         root.getStylesheets().add("style.css");
         root.setId("root");
-        // Left Pane
+        // Left Pane, contiene il titolo e il form per aggiungere nuovi task.
         VBox leftPane = new VBox();
         leftPane.setId("left-pane");
-        // add border with style
-
-        leftPane.setAlignment(Pos.TOP_CENTER);
+        leftPane.setAlignment(Pos.TOP_CENTER); // allinea i figli in alto al centro.
         Label leftPaneTitle = new Label("Todo App");
-        leftPaneTitle.getStyleClass().add("title-1");
-        leftPaneTitle.getStyleClass().add("accent");
-
-        leftPaneTitle.setAlignment(Pos.CENTER);
-        leftPane.getChildren().add(leftPaneTitle);
-
+        leftPaneTitle.getStyleClass().add("title-1"); // aggiungo la classe CSS "title-1" al titolo.
+        leftPaneTitle.getStyleClass().add("accent"); // aggiungo la classe CSS "accent" al titolo.
+        // field per aggiungere nuovi task
         TextField newTaskField = new TextField();
         Button addButton = new Button("Add");
-        leftPane.getChildren().addAll(newTaskField, addButton);
-
-        // Right Pane
+        // Aggiungo i nodi al leftPane
+        leftPane.getChildren().addAll(leftPaneTitle, newTaskField, addButton);
+        // Center Pane, contiene la lista dei task.
         VBox rightPane = new VBox();
         rightPane.setId("right-pane");
         rightPane.setAlignment(Pos.TOP_CENTER);
         Label rightPaneTitle = new Label("Tasks");
         rightPaneTitle.getStyleClass().addAll("accent", "title-2");
-        rightPane.getChildren().add(rightPaneTitle);
-
+        // Area dei task, contiene due liste: una per i task da fare e una per i task completati.
         HBox tasksArea = new HBox();
+        // Occupa tutto lo spazio a disposizione.
         VBox.setVgrow(tasksArea, Priority.ALWAYS);
         tasksArea.setId("tasks-area");
         VBox todoList = new VBox();
@@ -69,23 +57,23 @@ public class App extends Application {
         donePart.getStyleClass().add("title-3");
         todoList.getChildren().add(todoPart);
         doneList.getChildren().add(donePart);
+        // Setta la larghezza minima delle liste
         HBox.setHgrow(todoList, Priority.ALWAYS);
         HBox.setHgrow(doneList, Priority.ALWAYS);
         tasksArea.getChildren().addAll(todoList, doneList);
-        rightPane.getChildren().add(tasksArea);
-
-        // Add panes to root
-        root.setLeft(leftPane);
-        root.setCenter(rightPane);
-
+        rightPane.getChildren().addAll(rightPaneTitle, tasksArea);
+        // Aggiungo dei task di esempio
         var task1 = createTaskSection("Task1");
         var task2 = createTaskSection("Task2");
         todoList.getChildren().addAll(task1, task2);
-
-        // Example of one task done
+        // Aggiungo dei task completati di esempio
         VBox doneTask = new VBox(new Label("Task 2"));
         doneTask.getStyleClass().add("task");
         doneList.getChildren().add(doneTask);
+        // Imposto i pannelli sinistro e centrale come figli del root.
+        root.setLeft(leftPane);
+        root.setCenter(rightPane);
+
         // Set scene and stage
         Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("ToDo List App");
@@ -99,6 +87,7 @@ public class App extends Application {
         }
     }
 
+    // Crea un todo composto da una label e un bottone per segnare il task come completato.
     public static Node createTaskSection(String content) {
         HBox task = new HBox();
         task.getStyleClass().add("task");

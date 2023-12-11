@@ -1,20 +1,20 @@
 package it.unibo.javafx.fxml;
 
 public class Todo {
-    private final int id;
     private final String content;
 
-    public Todo(final int id, final String content) {
-        this.id = id;
+    public Todo(final String content) {
         this.content = content;
     }
 
-    public int getId() {
-        return this.id;
-    }
 
     public String getContent() {
         return this.content;
+    }
+
+    @Override
+    public int hashCode() {
+        return content.hashCode();
     }
 
     @Override
@@ -24,14 +24,7 @@ public class Todo {
 
         Todo todo = (Todo) o;
 
-        if (id != todo.id) return false;
         return content.equals(todo.content);
     }
 
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + content.hashCode();
-        return result;
-    }
 }
