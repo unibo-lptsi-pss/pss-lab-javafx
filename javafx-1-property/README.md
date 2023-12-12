@@ -19,8 +19,9 @@ L'obiettivo è sviluppare l'interfaccia grafica (GUI) nella classe `App`, che è
 
 **Compiti:**
 - Esamina la classe `App` esistente.
-- Struttura una GUI che corrisponda all'aspetto mostrato nell'immagine di esempio fornita: ![](./example.png)
-- Implementa le funzionalità per i pulsanti `+` e `-` in modo che possano rispettivam~~~~ente incrementare e decrementare il valore del contatore.
+- Struttura una GUI che corrisponda all'aspetto mostrato nell'immagine di esempio fornita:
+- ![](./example.png)
+- Implementa le funzionalità per i pulsanti `+` e `-` in modo che possano rispettivamente incrementare e decrementare il valore del contatore.
   - Utilizza il metodo `setOnAction` per associare un'azione al click di ciascun pulsante, modificando così il valore del contatore.
   - **Nota Importante:** Imposta la dimensione minima dei pulsanti a 100 pixel usando `setMinWidth(100)`.
 - Assicurati che il testo visualizzi il valore corrente del contatore.
