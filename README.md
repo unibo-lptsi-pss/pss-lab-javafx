@@ -27,4 +27,4 @@ Linux o Mac:
 ./gradlew :java-fx-1-property:run
 ```
 
-Per chiarimenti o domande, non esitate a chiedere ai docenti.
+Per chiarimenti o domande, non esitate a chiamare i docenti.
