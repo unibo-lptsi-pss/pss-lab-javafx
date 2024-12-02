@@ -4,7 +4,7 @@
 
 In questo repository vi viene fornito un progetto Gradle con una struttura di base per un progetto JavaFX.
 
-Notate la struttura di questo progetto, diversa da quella die repository che avete visto fino ad ora:
+Notate la struttura di questo progetto, diversa da quella dei repository che avete visto fino ad ora:
 
 - Esiste un solo gradle wrapper, nella root del progetto;
 - Esistono dei sotto-progetti, rispettivamente `java-fx-1-property`, `java-fx-2-layouts`, e `javafx-3-xml`.
