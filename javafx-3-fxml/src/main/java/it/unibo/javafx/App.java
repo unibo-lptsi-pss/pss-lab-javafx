@@ -1,37 +1,25 @@
-package it.unibo.javafx.fxml;
+package it.unibo.javafx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class App extends Application {
 
     @Override
     public final void start(final Stage primaryStage) throws Exception {
-        final Parent root = FXMLLoader.load(ClassLoader.getSystemResource("layouts/todo.fxml"));
+        final Parent root = new Pane(); // todo, qui va messa la logica per creare il lo schema mostrato in figura
         final Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("App FXML");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    private static void run(final String[] args) {
+    public static void run(final String[] args) {
         launch(args);
-    }
-
-    /**
-     * Entry point class.
-     */
-    public static final class Main {
-        private Main() {
-            // the constructor will never be called directly.
-        }
-
-        public static void main(final String... args) {
-            App.run(args);
-        }
     }
 
 }

@@ -1,27 +1,28 @@
-package it.unibo.javafx.fxml;
+package it.unibo.javafx;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Controller for the `JavaFXAppWithFXML` application.
  */
 public class TodoAppHandler {
     private TodoAppObservable model;
-    @FXML
     private TextField todoText;
-    @FXML
     private VBox tasksTodo;
-    @FXML
     private VBox tasksDone;
-    public TodoAppHandler() {
+    public TodoAppHandler(
+        TodoAppObservable model,
+        TextField todoText,
+        VBox tasksTodo,
+        VBox tasksDone
+    ) {
+        this.model = model;
         this.model = new TodoAppImpl(); // creo il modello, la logica dell'applicazione
         // aggiungo un listener sulla lista dei todos
         this.model.todosProperty().addListener((observable, oldValue, newValue) -> updateTodos(newValue));

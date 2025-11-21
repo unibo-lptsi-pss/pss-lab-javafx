@@ -1,4 +1,4 @@
-package it.unibo.javafx.fxml;
+package it.unibo.javafx;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import java.util.List;
  * The interface for the todo application.
  */
 public interface TodoApp {
+
     /**
      * Adds a new todo to the list of todos.
      * @param content the content of the todo
@@ -25,6 +26,7 @@ public interface TodoApp {
      */
 
     List<Todo> getTodos();
+
     /** Returns the list of completed todos.
      * @return the list of completed todos
      */

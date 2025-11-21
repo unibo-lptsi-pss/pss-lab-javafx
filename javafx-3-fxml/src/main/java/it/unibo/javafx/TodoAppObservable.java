@@ -1,4 +1,4 @@
-package it.unibo.javafx.fxml;
+package it.unibo.javafx;
 
 import javafx.beans.property.ListProperty;
 

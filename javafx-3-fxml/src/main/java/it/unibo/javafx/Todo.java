@@ -1,4 +1,4 @@
-package it.unibo.javafx.fxml;
+package it.unibo.javafx;
 
 public class Todo {
     private final String content;
