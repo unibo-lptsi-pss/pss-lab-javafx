@@ -11,15 +11,15 @@ public class App extends Application {
 
     @Override
     public final void start(final Stage primaryStage) throws Exception {
-        final Parent root = new Pane(); // todo, qui va messa la logica per creare il lo schema mostrato in figura
+        final Parent root = new Pane(); // todo, qui va messo il pannello (o varie classi per fare il pannello) fatte nell'esercizio precedente
         final Scene scene = new Scene(root, 800, 600);
-        primaryStage.setTitle("App FXML");
+        primaryStage.setTitle("App With Logic");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    public static void run(final String[] args) {
-        launch(args);
+    public static class Launcher {
+        void main(String[] args) {
+            Application.launch(App.class, args);
+        }
     }
-
 }

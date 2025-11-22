@@ -21,15 +21,17 @@ public class App extends Application {
         BorderPane root = new BorderPane();
         // Left Pane, contiene il titolo e il form per aggiungere nuovi task.
         VBox leftPane = new VBox();
-        leftPane.setId("left-pane");
         // TODO aggiungere il titolo e i pulsanti
         // Aggiungo i nodi al leftPane
+        // ....
+        // Right Pane, contiene il task da fare e i task fatti (vedi l'immagine)
         VBox rightPane = new VBox();
+        // Aggiungo le due colonne,
+        // ..
          // Imposto i pannelli sinistro e centrale come figli del root.
         root.setLeft(leftPane);
         root.setCenter(rightPane);
 
-        // Set scene and stage
         Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("ToDo List App");
         primaryStage.setScene(scene);
@@ -37,13 +39,13 @@ public class App extends Application {
     }
 
     public static class Main {
-        public static void main(String... args) {
+        static void main(String... args) {
             Application.launch(App.class, args);
         }
     }
 
     // Crea un todo composto da una label e un bottone per segnare il task come completato.
-    public static Node createTaskSection(String content) {
+    private static Node createTaskSection(String content) {
         throw new UnsupportedOperationException("TODO");
     }
 }
