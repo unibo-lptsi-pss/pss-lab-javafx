@@ -14,7 +14,21 @@ public class App extends Application {
         primaryStage.setTitle("Controls Exercise!");
         final VBox mainPane = new VBox();
         final Counter counter = new Counter();
-        // TODO aggiungere gli elementi come descritto da readme
+        
+        final Label lblCounter = new Label();
+        lblCounter.textProperty().bind(counter.counterProperty().asString());
+
+        final Button btnIncrement = new Button("+");
+        btnIncrement.setMinWidth(100);
+        btnIncrement.setOnAction(e -> counter.increment());
+
+        final Button btnDecrement = new Button("-");
+        btnDecrement.setMinWidth(100);
+        btnDecrement.setOnAction(e -> counter.decrement());
+
+        final HBox buttons = new HBox(btnIncrement, btnDecrement);
+        mainPane.getChildren().addAll(lblCounter, buttons);
+        
         primaryStage.setScene(new Scene(mainPane));
         primaryStage.show();
     }

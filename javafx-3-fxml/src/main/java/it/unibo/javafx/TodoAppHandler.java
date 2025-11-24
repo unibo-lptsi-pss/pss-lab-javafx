@@ -1,6 +1,8 @@
 package it.unibo.javafx;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -23,7 +25,9 @@ public class TodoAppHandler {
         VBox tasksDone
     ) {
         this.model = model;
-        this.model = new TodoAppImpl(); // creo il modello, la logica dell'applicazione
+        this.todoText = todoText;
+        this.tasksTodo = tasksTodo;
+        this.tasksDone = tasksDone;
         // aggiungo un listener sulla lista dei todos
         this.model.todosProperty().addListener((observable, oldValue, newValue) -> updateTodos(newValue));
         // aggiungo un listener sulla lista dei completedTodos
@@ -33,7 +37,10 @@ public class TodoAppHandler {
     // Handler da eseguire quando si preme il bottone "Add"
     @FXML
     public final void addTodo(final MouseEvent evt) {
-        // aggiungi un nuovo todo solo se il testo non e vuoto
+        if (todoText.getText() != null && !todoText.getText().isEmpty()) {
+            model.addNewTodo(todoText.getText());
+            todoText.clear();
+        }
     }
 
     // Aggiornamento dei todos, vengono tolti tutti quelli presenti e aggiunti quelli nuovi
@@ -44,7 +51,8 @@ public class TodoAppHandler {
 
     // Aggiornamento dei completedTodos, vengono tolti tutti quelli presenti e aggiunti quelli nuovi
     private void updateDone(List<Todo> todos) {
-        // Simile a quello di prima
+        tasksDone.getChildren().clear();
+        todos.forEach(this::insertCompleted);
     }
 
     // Inserisce un nuovo todo nella lista dei todos
@@ -52,13 +60,22 @@ public class TodoAppHandler {
     // il bottone viene associato ad un evento che chiama il metodo completeTodo del modello!!
     private void insertTodoGraphic(Todo todo) {
         var todoGraphic = new HBox();
-        // TODO
+        todoGraphic.setSpacing(10);
+        Label label = new Label(todo.getContent());
+        Button button = new Button("Complete");
+        button.setOnAction(e -> model.completeTodo(todo));
+        todoGraphic.getChildren().addAll(label, button);
+        tasksTodo.getChildren().add(todoGraphic);
     }
 
     // Inserisce un nuovo todo nella lista dei completedTodos
     // qui ci sarà solo il testo del todo
     private void insertCompleted(Todo todo) {
         var todoGraphic = new HBox();
-        // TODO
+        todoGraphic.setSpacing(10);
+        Label label = new Label(todo.getContent());
+        todoGraphic.getChildren().add(label);
+        todoGraphic.setDisable(true);
+        tasksDone.getChildren().add(todoGraphic);
     }
 }
