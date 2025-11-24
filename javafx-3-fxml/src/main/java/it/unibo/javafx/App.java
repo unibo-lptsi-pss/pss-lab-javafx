@@ -78,6 +78,7 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     public static class Launcher {
         void main(String[] args) {
             Application.launch(App.class, args);

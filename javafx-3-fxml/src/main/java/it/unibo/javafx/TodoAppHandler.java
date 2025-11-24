@@ -35,7 +35,6 @@ public class TodoAppHandler {
     }
 
     // Handler da eseguire quando si preme il bottone "Add"
-    @FXML
     public final void addTodo(final MouseEvent evt) {
         if (todoText.getText() != null && !todoText.getText().isEmpty()) {
             model.addNewTodo(todoText.getText());
@@ -62,7 +61,7 @@ public class TodoAppHandler {
         var todoGraphic = new HBox();
         todoGraphic.setSpacing(10);
         Label label = new Label(todo.getContent());
-        Button button = new Button("Complete");
+        Button button = new Button("X");
         button.setOnAction(e -> model.completeTodo(todo));
         todoGraphic.getChildren().addAll(label, button);
         tasksTodo.getChildren().add(todoGraphic);

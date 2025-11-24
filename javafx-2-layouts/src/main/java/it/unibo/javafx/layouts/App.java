@@ -53,7 +53,7 @@ public class App extends Application {
         doneColumn.setSpacing(10);
         Label doneLabel = new Label("Done");
         doneColumn.getChildren().add(doneLabel);
-        Node doneTask = createTaskSection("Task 3");
+        Node doneTask = new Label("Task 3");
         doneTask.setDisable(true);
         doneColumn.getChildren().add(doneTask);
 
@@ -83,7 +83,7 @@ public class App extends Application {
     private static Node createTaskSection(String content) {
         final HBox box = new HBox();
         final Label label = new Label(content);
-        final Button button = new Button("Complete");
+        final Button button = new Button("X");
         box.getChildren().addAll(label, button);
         box.setSpacing(10);
         return box;
