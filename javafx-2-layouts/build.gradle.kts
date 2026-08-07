@@ -32,7 +32,7 @@ dependencies {
         }
     }
 
-    val jUnitVersion = "6.1.2"
+    val jUnitVersion = "6.1.3"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
 }
