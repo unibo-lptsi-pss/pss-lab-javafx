@@ -2,7 +2,7 @@ plugins {
     base
 }
 
-// Configurazione comune ai tre esercizi, coerente con le slide del corso.
+// Configurazione comune agli esercizi, coerente con le slide del corso.
 subprojects {
     apply(plugin = "application")
 
