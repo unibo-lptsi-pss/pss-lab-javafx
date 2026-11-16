@@ -30,8 +30,6 @@ Completare `App.start` usando:
 - due `Button`, “Accendi” e “Spegni”, larghi almeno 100 pixel;
 - un `HBox` per affiancare i pulsanti e un `VBox` per disporre riquadro, testo e pulsanti in verticale.
 
-**Hint:** usare `setAlignment(Pos.CENTER)`, `setSpacing(...)` e `setPadding(new Insets(...))` per allineamento e spaziatura. La finestra degli screenshot misura 320 × 280 pixel; il layout esatto non è l'obiettivo dell'esercizio.
-
 ## 3. Collegare eventi e proprietà
 
 - Con `setOnAction`, collegare ogni pulsante al metodo corrispondente del modello.
