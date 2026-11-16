@@ -1,7 +1,6 @@
 package it.unibo.javafx;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -71,7 +70,7 @@ public class App extends Application {
         TodoAppObservable model = new TodoAppImpl();
         TodoAppHandler handler = new TodoAppHandler(model, newTaskField, todoItems, doneItems);
 
-        addButton.setOnMouseClicked(handler::addTodo);
+        addButton.setOnAction(handler::addTodo);
 
         final Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("App With Logic");
@@ -80,7 +79,7 @@ public class App extends Application {
     }
 
     public static class Launcher {
-        void main(String[] args) {
+        public static void main(String[] args) {
             Application.launch(App.class, args);
         }
     }
