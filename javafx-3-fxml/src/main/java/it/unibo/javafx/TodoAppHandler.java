@@ -1,21 +1,20 @@
 package it.unibo.javafx;
 
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
 
 /**
- * Controller for the `JavaFXAppWithFXML` application.
+ * Controller for the TODO list application.
  */
 public class TodoAppHandler {
-    private TodoAppObservable model;
-    private TextField todoText;
-    private VBox tasksTodo;
-    private VBox tasksDone;
+    private final TodoAppObservable model;
+    private final TextField todoText;
+    private final VBox tasksTodo;
+    private final VBox tasksDone;
     public TodoAppHandler(
         TodoAppObservable model,
         TextField todoText,
@@ -23,7 +22,9 @@ public class TodoAppHandler {
         VBox tasksDone
     ) {
         this.model = model;
-        this.model = new TodoAppImpl(); // creo il modello, la logica dell'applicazione
+        this.todoText = todoText;
+        this.tasksTodo = tasksTodo;
+        this.tasksDone = tasksDone;
         // aggiungo un listener sulla lista dei todos
         this.model.todosProperty().addListener((observable, oldValue, newValue) -> updateTodos(newValue));
         // aggiungo un listener sulla lista dei completedTodos
@@ -31,8 +32,7 @@ public class TodoAppHandler {
     }
 
     // Handler da eseguire quando si preme il bottone "Add"
-    @FXML
-    public final void addTodo(final MouseEvent evt) {
+    public final void addTodo(final ActionEvent evt) {
         // aggiungi un nuovo todo solo se il testo non e vuoto
     }
 

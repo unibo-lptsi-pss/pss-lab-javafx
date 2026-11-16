@@ -14,20 +14,26 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   Build:
-    if: contains(github.repository, 'sample-javafx-project') && !github.event.repository.fork
     strategy:
+      fail-fast: false
       matrix:
         os: [windows, macos, ubuntu]
-        jvm_version: [17, 18, 19]
     runs-on: ${{ matrix.os }}-latest
     steps:
       - name: Checkout
-        uses: DanySK/action-checkout@0.2.31
-      - uses: DanySK/build-check-deploy-gradle-action@4.0.52
+        uses: actions/checkout@v7
+      - name: Setup Java
+        uses: actions/setup-java@v6
         with:
-          java-version: ${{ matrix.jvm_version }}
-          should-run-codecov: false
-          should-deploy: false
-          should-validate-wrapper: ${{ matrix.os == 'ubuntu' && matrix.jvm_version == '17' }}
+          distribution: temurin
+          java-version: '25'
+      - name: Setup Gradle and validate wrapper
+        uses: gradle/actions/setup-gradle@v6
+      - name: Build all exercises
+        shell: bash
+        run: ./gradlew build --warning-mode=fail

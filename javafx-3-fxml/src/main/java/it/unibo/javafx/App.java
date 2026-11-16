@@ -1,7 +1,6 @@
 package it.unibo.javafx;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -18,7 +17,7 @@ public class App extends Application {
         primaryStage.show();
     }
     public static class Launcher {
-        void main(String[] args) {
+        public static void main(String[] args) {
             Application.launch(App.class, args);
         }
     }
