@@ -1,39 +1,46 @@
-# Esercizio sull'utilizzo dei layout in JavaFX
+# Esercizio sui layout di JavaFX: la TODO list
 
-Questo esercizio ha lo scopo di sviluppare una comprensione pratica dei layout in JavaFX, creando un'interfaccia grafica (GUI) per un'applicazione. 
-L'obiettivo è realizzare una GUI che corrisponda all'aspetto mostrato nell'immagine di esempio. 
-L'esercizio si concentra esclusivamente sulla struttura della GUI, senza implementare la logica di business, che sarà affrontata in seguito.
+Costruire l'interfaccia di una TODO list in due checkpoint, nello stesso progetto. L'obiettivo è comporre i controlli e organizzare i contenitori, riprendendo le sezioni sui layout e sul dimensionamento delle [slide del corso](https://unibo-lptsi-pss.github.io/22-gui/#/).
 
-![GUI Layout Example](./schema.png)
+I dati sono statici: i pulsanti **Add** e **X** devono essere visibili, ma non devono ancora eseguire azioni. La logica sarà aggiunta nell'esercizio 3.
 
-## Fasi per la realizzazione della GUI
+## 2A — Il form
 
-### Analisi dei componenti necessari
-- Esaminare attentamente l'immagine fornita per identificare i componenti necessari alla creazione della GUI.
+Completare `createInputPane()` con un titolo “Todo List”, un campo di testo e un pulsante “Add”, disposti in verticale. Il form occupa l'area sinistra della finestra; l'area centrale resta per ora vuota.
 
-### Sviluppo della parte sinistra
-- La parte sinistra della GUI deve includere:
-  - Un titolo.
-  - Un campo di testo.
-  - Un pulsante.
-  - **Nota:** Utilizzare il metodo `setAlignment` con la costante `Pos.TOP_CENTER` per centrare questi elementi come mostrato nell'immagine.
+Prima verificare l'ordine degli elementi, poi aggiungere spazio e allineamento:
 
-### Sviluppo della parte destra
-- La parte destra è un contenitore verticale (`VBox`) che a sua volta contiene:
-  - Un'intestazione con il testo "Tasks".
-  - Un contenitore orizzontale (`HBox`) che ospita le due colonne "Todo" e "Done".
-  
-#### Colonna "Todo"
-- La colonna "Todo" è un `VBox` che contiene:
-  - Un'etichetta con il testo "Todo".
-  - Una serie di task da completare.
-- **Suggerimento:** Per creare ciascun task nella lista "Todo", si consiglia di utilizzare un metodo helper (es. `createTaskSection`). Questo metodo dovrebbe prendere una stringa come parametro e restituire il `Node` (`HBox`) che rappresenta il singolo task. Tale approccio migliora la modularità e la leggibilità del codice e potrà essere riutilizzato anche per la colonna "Done".
+- **Spacing:** distanza fra i componenti figli di un contenitore.
+- **Padding:** spazio interno fra il bordo del contenitore e i suoi componenti.
+- **Alignment:** posizione dei componenti all'interno dello spazio disponibile.
 
-#### Colonna "Done"
-- Anche la colonna "Done" è un `VBox` e contiene:
-  - Un'etichetta con il testo "Done".
-  - I task completati (che sono settati come disabilitati)
+In JavaFX si configurano con `setSpacing(...)`, `setPadding(new Insets(...))` e `setAlignment(...)`, sui contenitori che li supportano. Per il form, usare l'allineamento `Pos.TOP_CENTER`.
 
-**Note importanti:**
-- Utilizzare i metodi `setSpacing` e `setPadding` per gestire gli spazi tra i componenti e i margini interni dei layout.
-- Assicurarsi che tutti i componenti siano ben allineati e distribuiti come mostrato nell'immagine di esempio.
+![Checkpoint 2A: form nella parte sinistra e area centrale vuota](checkpoint-form.png)
+
+**Checkpoint:** titolo, campo e pulsante sono visibili in verticale, separati da spazio e distanziati dai bordi. Il campo accetta testo; premere Add non aggiunge task.
+
+## 2B — Le colonne dei task
+
+Completare `createTasksPane()` nell'area centrale, mantenendo il form della prima tappa. Aggiungere un'intestazione “Tasks” e, sotto, due colonne affiancate:
+
+- **Todo:** intestazione e due task, “Task 1” e “Task 2”. Ogni riga contiene il testo e un pulsante “X”. Completare `createTaskSection(String content)` per costruire entrambe le righe.
+- **Done:** intestazione e il testo “Task 3”, disabilitato e senza pulsante.
+
+Inserire i tre task direttamente nel codice. Scegliere come combinare i contenitori per ottenere la struttura mostrata.
+
+![Checkpoint 2B: form e due colonne con task statici](schema.png)
+
+**Checkpoint:** le colonne sono affiancate, i task di ciascuna colonna sono in verticale e il testo completato appare disabilitato. I pulsanti X non modificano i task.
+
+Conta la struttura della GUI: non è richiesta una riproduzione esatta delle misure o delle distanze dello screenshot.
+
+## Estensione: ridimensionare la finestra
+
+Allargare e restringere la finestra: quali aree cambiano dimensione? Come si distribuisce lo spazio fra le colonne? Provare a far usare alle due colonne lo spazio orizzontale disponibile, senza ricorrere a coordinate fisse.
+
+Questa parte è facoltativa; i due checkpoint precedenti costituiscono l'esercizio base.
+
+## Avvio
+
+Dalla root: `./gradlew :javafx-2-layouts:run` (Windows: `.\gradlew.bat :javafx-2-layouts:run`).

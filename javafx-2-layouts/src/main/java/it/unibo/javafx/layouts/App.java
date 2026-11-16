@@ -1,8 +1,8 @@
 package it.unibo.javafx.layouts;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,76 +16,51 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        // Il root è un BorderPane, che divide la finestra in 5 aree: top, bottom, left, right, center.
-        // Noi usiamo solo left e center.
-        BorderPane root = new BorderPane();
-        // Left Pane, contiene il titolo e il form per aggiungere nuovi task.
-        VBox leftPane = new VBox();
-        leftPane.setAlignment(Pos.TOP_CENTER);
-        leftPane.setSpacing(10);
-        leftPane.setPadding(new Insets(10));
+    public void start(final Stage primaryStage) {
+        final BorderPane root = new BorderPane();
+        root.setLeft(createInputPane());
+        root.setCenter(createTasksPane());
 
-        Label title = new Label("Todo List");
-        TextField newTaskField = new TextField();
-        Button addButton = new Button("Add");
-
-        leftPane.getChildren().addAll(title, newTaskField, addButton);
-
-        // Right Pane, contiene il task da fare e i task fatti (vedi l'immagine)
-        VBox rightPane = new VBox();
-        rightPane.setSpacing(10);
-        rightPane.setPadding(new Insets(10));
-
-        Label tasksTitle = new Label("Tasks");
-
-        HBox columns = new HBox();
-        columns.setSpacing(20);
-
-        VBox todoColumn = new VBox();
-        todoColumn.setSpacing(10);
-        Label todoLabel = new Label("Todo");
-        todoColumn.getChildren().add(todoLabel);
-        todoColumn.getChildren().add(createTaskSection("Task 1"));
-        todoColumn.getChildren().add(createTaskSection("Task 2"));
-
-        VBox doneColumn = new VBox();
-        doneColumn.setSpacing(10);
-        Label doneLabel = new Label("Done");
-        doneColumn.getChildren().add(doneLabel);
-        Node doneTask = new Label("Task 3");
-        doneTask.setDisable(true);
-        doneColumn.getChildren().add(doneTask);
-
-        columns.getChildren().addAll(todoColumn, doneColumn);
-        HBox.setHgrow(todoColumn, Priority.ALWAYS);
-        HBox.setHgrow(doneColumn, Priority.ALWAYS);
-
-        rightPane.getChildren().addAll(tasksTitle, columns);
-
-        // Imposto i pannelli sinistro e centrale come figli del root.
-        root.setLeft(leftPane);
-        root.setCenter(rightPane);
-
-        Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("ToDo List App");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
-    public static class Main {
-        public static void main(String... args) {
-            Application.launch(App.class, args);
-        }
+    // Checkpoint 2A: costruire il form.
+    private static VBox createInputPane() {
+        final VBox pane = new VBox(10);
+        pane.setPadding(new Insets(10));
+        pane.setAlignment(Pos.TOP_CENTER);
+        pane.getChildren().addAll(new Label("Todo List"), new TextField(), new Button("Add"));
+        return pane;
     }
 
-    // Crea un todo composto da una label e un bottone per segnare il task come completato.
-    private static Node createTaskSection(String content) {
-        final HBox box = new HBox();
-        final Label label = new Label(content);
-        final Button button = new Button("X");
-        box.getChildren().addAll(label, button);
-        box.setSpacing(10);
-        return box;
+    // Checkpoint 2B: costruire l'area Tasks con le due colonne e i dati statici.
+    private static VBox createTasksPane() {
+        final VBox todo = new VBox(10, new Label("Todo"),
+            createTaskSection("Task 1"), createTaskSection("Task 2"));
+        final Label completed = new Label("Task 3");
+        completed.setDisable(true);
+        final VBox done = new VBox(10, new Label("Done"), completed);
+        final HBox columns = new HBox(20, todo, done);
+
+        // Estensione: distribuire lo spazio orizzontale disponibile fra le colonne.
+        HBox.setHgrow(todo, Priority.ALWAYS);
+        HBox.setHgrow(done, Priority.ALWAYS);
+
+        final VBox pane = new VBox(10, new Label("Tasks"), columns);
+        pane.setPadding(new Insets(10));
+        return pane;
+    }
+
+    // Checkpoint 2B: costruire una riga dei task da fare.
+    private static Node createTaskSection(final String content) {
+        return new HBox(10, new Label(content), new Button("X"));
+    }
+
+    public static class Main {
+        public static void main(final String... args) {
+            Application.launch(App.class, args);
+        }
     }
 }

@@ -17,7 +17,7 @@ Il progetto usa un solo wrapper Gradle nella root e quattro sotto-progetti, dich
 
 - [`javafx-1-property`](javafx-1-property/README.md): lampadina osservabile e binding con la GUI.
 - [`javafx-1b-property-volume`](javafx-1b-property-volume/README.md): regolatore del volume e sincronizzazione tra modello e GUI.
-- [`javafx-2-layouts`](javafx-2-layouts/README.md): costruzione della GUI di una TODO list.
+- [`javafx-2-layouts`](javafx-2-layouts/README.md): costruzione della GUI di una TODO list in due checkpoint, form e colonne dei task.
 - [`javafx-3-fxml`](javafx-3-fxml/README.md): modello osservabile e controller della TODO list. Il nome della cartella è storico: l'esercizio usa la GUI costruita in Java, senza richiedere FXML.
 
 Il `build.gradle.kts` nella root contiene la configurazione comune: toolchain Java 25, moduli JavaFX, JUnit e repository. I file nei sotto-progetti specificano le rispettive classi di avvio. Queste sono separate dalla sottoclasse di `Application`, come indicato nelle slide.
