@@ -36,4 +36,8 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
       - name: Build all exercises
         shell: bash
-        run: ./gradlew build --warning-mode=fail
+        run: ./gradlew build compileTestJava -x test --warning-mode=fail
+      - name: Test solutions
+        if: github.ref == 'refs/heads/solution' || github.base_ref == 'solution'
+        shell: bash
+        run: ./gradlew test --warning-mode=fail
