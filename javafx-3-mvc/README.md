@@ -1,4 +1,4 @@
-# Esercizio su modello osservabile e controller in JavaFX
+# Esercizio su modello, vista e controller (MVC) in JavaFX
 
 Sviluppare la parte logica della TODO list in tre step.
 L'obiettivo è collegare modello e GUI usando eventi e liste osservabili,
@@ -6,7 +6,7 @@ riprendendo le sezioni su proprietà e listener delle [slide del corso](https://
 
 La GUI del secondo esercizio è già predisposta in `App`.
 Le due liste partono vuote: i task statici dell'esercizio precedente non sono presenti.
-La cartella mantiene il nome `javafx-3-fxml`, ma non è necessario usare FXML.
+Il modello è in `TodoAppImpl`, la vista è costruita in `App` e il controller è `TodoAppHandler`.
 
 ## Step 3A — Il modello
 
@@ -58,4 +58,4 @@ Completare anche l'altro task e verificare che entrambe le intestazioni restino 
 
 ## Avvio
 
-Dalla root: `./gradlew :javafx-3-fxml:run` (Windows: `.\gradlew.bat :javafx-3-fxml:run`).
+Dalla root: `./gradlew :javafx-3-mvc:run` (Windows: `.\gradlew.bat :javafx-3-mvc:run`).

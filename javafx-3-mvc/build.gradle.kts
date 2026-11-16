@@ -1,6 +1,6 @@
 plugins {
     application
-    // ./gradlew :javafx-3-fxml:shadowJar crea il JAR eseguibile in build/libs.
+    // ./gradlew :javafx-3-mvc:shadowJar crea il JAR eseguibile in build/libs.
     id("com.gradleup.shadow") version "9.6.1"
 }
 
