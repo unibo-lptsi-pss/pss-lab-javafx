@@ -15,7 +15,7 @@ Impostare `JAVA_HOME` sulla directory del JDK 25 e, nell'IDE, selezionare lo ste
 
 Il progetto usa un solo wrapper Gradle nella root e tre sotto-progetti, dichiarati in `settings.gradle.kts`:
 
-- [`javafx-1-property`](javafx-1-property/README.md): contatore osservabile e binding con la GUI.
+- [`javafx-1-property`](javafx-1-property/README.md): lampadina osservabile e binding con la GUI.
 - [`javafx-2-layouts`](javafx-2-layouts/README.md): costruzione della GUI di una TODO list.
 - [`javafx-3-fxml`](javafx-3-fxml/README.md): modello osservabile e controller della TODO list. Il nome della cartella è storico: l'esercizio usa la GUI costruita in Java, senza richiedere FXML.
 
