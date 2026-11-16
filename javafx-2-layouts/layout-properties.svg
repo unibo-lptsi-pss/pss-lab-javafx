@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="530" viewBox="0 0 1080 530" role="img" aria-labelledby="title description">
+  <title id="title">Padding, spacing e alignment in un VBox di JavaFX</title>
+  <desc id="description">Tre esempi distinti. Il padding è lo spazio interno fra il bordo del contenitore e l'area dei figli. Lo spacing è la distanza verticale fra figli consecutivi di un VBox. L'allineamento TOP_CENTER dispone il gruppo di figli in alto e al centro dell'area interna disponibile.</desc>
+  <defs>
+    <marker id="orange-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#b45309"/>
+    </marker>
+    <marker id="green-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#047857"/>
+    </marker>
+    <style>
+      text { font-family: sans-serif; fill: #17263c; font-size: 16px; }
+      .heading { font-size: 24px; font-weight: 700; }
+      .small { font-size: 14px; }
+      .muted { fill: #526277; }
+      .code { font-family: monospace; font-size: 14px; }
+      .control { fill: #eaf0f8; stroke: #71839a; stroke-width: 1.5; }
+      .border { fill: none; stroke: #526277; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="530" rx="12" fill="#ffffff"/>
+  <text x="28" y="36" font-size="22" font-weight="700">Tre proprietà, tre effetti diversi</text>
+  <text x="28" y="63" class="muted">Esempi su un VBox: i rettangoli rappresentano controlli con dimensioni fisse.</text>
+
+  <path d="M 360 88 V 502 M 720 88 V 502" stroke="#e0e6ee"/>
+
+  <!-- Padding: the tinted ring is inside the container border. -->
+  <text x="28" y="111" class="heading">Padding</text>
+  <rect x="28" y="145" width="304" height="240" rx="3" fill="#fff0d6"/>
+  <rect x="52" y="169" width="256" height="192" fill="#ffffff" stroke="#b45309" stroke-dasharray="5 4"/>
+  <rect x="28" y="145" width="304" height="240" rx="3" class="border"/>
+  <rect x="52" y="169" width="140" height="42" rx="4" class="control"/>
+  <text x="122" y="195" text-anchor="middle">Controllo 1</text>
+  <rect x="52" y="225" width="140" height="42" rx="4" class="control"/>
+  <text x="122" y="251" text-anchor="middle">Controllo 2</text>
+  <path d="M 29 291 H 51" stroke="#b45309" stroke-width="1.5" marker-start="url(#orange-arrow)" marker-end="url(#orange-arrow)"/>
+  <text x="65" y="297" style="fill:#92400e">24 px di padding</text>
+  <path d="M 250 146 V 168" stroke="#b45309" stroke-width="1.5" marker-start="url(#orange-arrow)" marker-end="url(#orange-arrow)"/>
+  <text x="244" y="338" class="small" text-anchor="middle" style="fill:#92400e">area interna</text>
+  <text x="28" y="414">Spazio fra il bordo e l'area</text>
+  <text x="28" y="437">in cui vengono disposti i figli.</text>
+  <rect x="20" y="461" width="320" height="34" rx="5" fill="#f3f6fa"/>
+  <text x="30" y="483" class="code">box.setPadding(new Insets(24));</text>
+
+  <!-- Spacing: the arrow spans only the gap between the two controls. -->
+  <text x="388" y="111" class="heading">Spacing</text>
+  <rect x="388" y="145" width="304" height="240" rx="3" class="border"/>
+  <rect x="412" y="169" width="140" height="42" rx="4" class="control"/>
+  <text x="482" y="195" text-anchor="middle">Controllo 1</text>
+  <rect x="412" y="211" width="140" height="24" fill="#d1fae5"/>
+  <rect x="412" y="235" width="140" height="42" rx="4" class="control"/>
+  <text x="482" y="261" text-anchor="middle">Controllo 2</text>
+  <path d="M 554 211 H 580 M 554 235 H 580" stroke="#047857" stroke-dasharray="3 3"/>
+  <path d="M 574 212 V 234" stroke="#047857" stroke-width="1.5" marker-start="url(#green-arrow)" marker-end="url(#green-arrow)"/>
+  <text x="588" y="229" style="fill:#047857">24 px</text>
+  <text x="412" y="335" class="small muted">Nel VBox la distanza è verticale.</text>
+  <text x="412" y="357" class="small muted">Nell'HBox è orizzontale.</text>
+  <text x="388" y="414">Spazio fra due figli consecutivi</text>
+  <text x="388" y="437">lungo la direzione del contenitore.</text>
+  <rect x="380" y="461" width="320" height="34" rx="5" fill="#f3f6fa"/>
+  <text x="390" y="483" class="code">box.setSpacing(24);</text>
+
+  <!-- Alignment: both children are at the top, centered in the inner area. -->
+  <text x="748" y="111" class="heading">Alignment</text>
+  <rect x="748" y="145" width="304" height="240" rx="3" class="border"/>
+  <rect x="772" y="169" width="256" height="192" fill="#f8fafc" stroke="#a6b0c0" stroke-dasharray="5 4"/>
+  <path d="M 900 151 V 374" stroke="#4f46e5" stroke-dasharray="4 4"/>
+  <path d="M 773 169 H 1027" stroke="#4f46e5" stroke-dasharray="4 4"/>
+  <rect x="830" y="169" width="140" height="42" rx="4" class="control"/>
+  <text x="900" y="195" text-anchor="middle">Controllo 1</text>
+  <rect x="830" y="225" width="140" height="42" rx="4" class="control"/>
+  <text x="900" y="251" text-anchor="middle">Controllo 2</text>
+  <text x="900" y="304" text-anchor="middle" style="fill:#4338ca">TOP_CENTER</text>
+  <text x="900" y="340" class="small muted" text-anchor="middle">spazio libero sotto il gruppo</text>
+  <text x="748" y="414">Posizione dei figli nell'area interna:</text>
+  <text x="748" y="437">qui in alto e centrati in orizzontale.</text>
+  <rect x="740" y="461" width="320" height="34" rx="5" fill="#f3f6fa"/>
+  <text x="750" y="483" class="code">box.setAlignment(Pos.TOP_CENTER);</text>
+  <text x="28" y="519" class="small muted">Il padding può restare presente anche negli esempi di spacing e alignment: le proprietà si combinano.</text>
+</svg>

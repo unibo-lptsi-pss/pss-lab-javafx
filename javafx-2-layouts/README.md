@@ -1,20 +1,33 @@
 # Esercizio sui layout di JavaFX: la TODO list
 
-Costruire l'interfaccia di una TODO list in due checkpoint, nello stesso progetto. L'obiettivo è comporre i controlli e organizzare i contenitori, riprendendo le sezioni sui layout e sul dimensionamento delle [slide del corso](https://unibo-lptsi-pss.github.io/22-gui/#/).
+Costruire l'interfaccia di una TODO list in due sotto esercizi.
+L'obiettivo è comporre i controlli e organizzare i contenitori,
+riprendendo le sezioni sui layout e sul dimensionamento delle [slide del corso](https://unibo-lptsi-pss.github.io/22-gui/#/).
 
-I dati sono statici: i pulsanti **Add** e **X** devono essere visibili, ma non devono ancora eseguire azioni. La logica sarà aggiunta nell'esercizio 3.
+I dati sono statici:
+i pulsanti **Add** e **X** devono essere visibili, ma
+non devono ancora eseguire azioni.
+La logica sarà aggiunta nell'esercizio 3.
 
 ## 2A — Il form
 
-Completare `createInputPane()` con un titolo “Todo List”, un campo di testo e un pulsante “Add”, disposti in verticale. Il form occupa l'area sinistra della finestra; l'area centrale resta per ora vuota.
+Completare `createInputPane()` con un titolo “Todo List”,
+un campo di testo e un pulsante “Add”, disposti in verticale.
+Il form occupa l'area sinistra della finestra mentre l'area centrale resta per ora vuota.
 
-Prima verificare l'ordine degli elementi, poi aggiungere spazio e allineamento:
+Si chiede allo studente di focalizzarsi prima sull'ordine degli elementi,
+e poi di considerare anche spacing e allineamento:
 
 - **Spacing:** distanza fra i componenti figli di un contenitore.
 - **Padding:** spazio interno fra il bordo del contenitore e i suoi componenti.
 - **Alignment:** posizione dei componenti all'interno dello spazio disponibile.
 
-In JavaFX si configurano con `setSpacing(...)`, `setPadding(new Insets(...))` e `setAlignment(...)`, sui contenitori che li supportano. Per il form, usare l'allineamento `Pos.TOP_CENTER`.
+In JavaFX si configurano con `setSpacing(...)`, `setPadding(new Insets(...))` e `setAlignment(...)`,
+sui contenitori che li supportano.
+
+![Confronto fra padding, spacing e allineamento TOP_CENTER in un VBox](layout-properties.svg)
+
+Per il form, usare l'allineamento `Pos.TOP_CENTER`.
 
 ![Checkpoint 2A: form nella parte sinistra e area centrale vuota](checkpoint-form.png)
 
