@@ -1,17 +1,15 @@
 # Esercizio sulle proprietà di JavaFX: il volume
 
-Realizzare un regolatore del volume con uno slider da 0 a 100, una label con il valore corrente e un pulsante **Reset**.
+In questo esercizio si chiede di realizzare un regolatore del volume composto da uno slider con valori da 0 a 100, un'etichetta che mostri il livello corrente e un pulsante **Reset**.
 
-Uno **slider** è un controllo grafico formato da una barra e da un cursore che si può trascinare per scegliere un valore tra un minimo e un massimo, come nei controlli del volume. In JavaFX è rappresentato dalla classe `Slider`: ha un valore numerico corrente, che può essere anche decimale e cambia mentre si sposta il cursore. In questo esercizio, l'estremo sinistro corrisponde a 0 e quello destro a 100.
+Uno **slider** è un controllo grafico costituito da una barra lungo la quale si può trascinare un cursore per scegliere un valore compreso tra un minimo e un massimo, come nei comuni controlli del volume. In JavaFX questo componente è rappresentato dalla classe `Slider`, che mantiene un valore numerico corrente (anche decimale) aggiornato mentre si sposta il cursore. Ai fini dell'esercizio, l'estremo sinistro corrisponde a 0 e quello destro a 100.
 
-Il volume iniziale è **50**. Spostando lo slider, il valore nel modello e il testo della label devono aggiornarsi. Premendo Reset, il volume torna a 50 e anche lo slider deve tornare nella posizione corrispondente.
+All'avvio il volume iniziale è impostato a **50**. Quando l'utente sposta il cursore dello slider devono aggiornarsi sia il valore nel modello sia il testo dell'etichetta, mentre premendo il pulsante **Reset** il volume viene riportato a 50 e anche lo slider deve tornare automaticamente nella posizione corrispondente.
 
 | Stato iniziale e dopo Reset | Dopo aver spostato lo slider |
 | --- | --- |
 | ![Volume iniziale a 50](example.png) | ![Volume impostato a 80](example-volume.png) |
 
-Completare le classi `Volume` e `App`, usando le proprietà di JavaFX per mantenere sincronizzati modello e interfaccia. Gli eventi devono modificare il modello; gli aggiornamenti della vista devono avvenire tramite binding.
+Si chiede allo studente di completare le classi `Volume` e `App` sfruttando le proprietà osservabili di JavaFX per mantenere costantemente sincronizzati il modello e l'interfaccia grafica: gli eventi generati dall'utente devono agire sul modello, mentre l'aggiornamento della vista deve avvenire tramite il meccanismo dei binding.
 
-Verificare anche più spostamenti consecutivi dello slider e più pressioni del pulsante Reset.
-
-Avviare dalla root con `./gradlew :javafx-1b-property-volume:run` (Windows: `.\gradlew.bat :javafx-1b-property-volume:run`).
+Per avviare l'applicazione dalla cartella principale del progetto, eseguire `./gradlew :javafx-1b-property-volume:run` (oppure `.\gradlew.bat :javafx-1b-property-volume:run` su Windows), avendo cura di verificare anche più spostamenti consecutivi dello slider alternati a ripetute pressioni del pulsante **Reset**.

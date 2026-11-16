@@ -1,59 +1,63 @@
 # Esercizio sui layout di JavaFX: la TODO list
 
-Costruire l'interfaccia di una TODO list in due sottoesercizi.
-L'obiettivo è comporre i controlli e organizzare i contenitori,
-riprendendo le sezioni sui layout e sul dimensionamento delle [slide del corso](https://unibo-lptsi-pss.github.io/22-gui/#/).
+In questo esercizio si costruisce gradualmente l'interfaccia grafica di una TODO list,
+procedendo in due sottoesercizi.
+L'obiettivo è prendere dimestichezza con la composizione dei controlli e
+l'organizzazione dei contenitori,
+riprendendo le sezioni dedicate ai layout e
+al dimensionamento nelle [slide del corso](https://unibo-lptsi-pss.github.io/22-gui/#/).
 
-I dati sono statici:
-i pulsanti **Add** e **X** devono essere visibili, ma
-non devono ancora eseguire azioni.
-La logica sarà aggiunta nell'esercizio 3.
+In questa fase i dati mostrati sono puramente statici:
+i pulsanti **Add** e **X** devono comparire nell'interfaccia,
+ma non devono ancora eseguire alcuna azione,
+poiché la logica applicativa verrà introdotta nell'esercizio successivo.
 
 ## 2A — Il form
 
-Completare `createInputPane()` con un titolo “Todo List”,
-un campo di testo e un pulsante “Add”, disposti in verticale.
-Il form occupa l'area sinistra della finestra, mentre l'area centrale resta per ora vuota.
+Nel primo sottoesercizio occorre completare il metodo `createInputPane()` inserendo un titolo "Todo List",
+un campo di testo e un pulsante "Add", disposti in verticale.
+Il form occupa l'area sinistra della finestra, mentre l'area centrale rimane per il momento vuota.
 
 Si chiede allo studente di focalizzarsi prima sull'ordine degli elementi
-e poi di considerare anche spacing e allineamento:
+e poi di considerare anche spacing, padding e allineamento:
 
 - **Spacing:** distanza fra i componenti figli di un contenitore.
 - **Padding:** spazio interno fra il bordo del contenitore e i suoi componenti.
 - **Alignment:** posizione dei componenti all'interno dello spazio disponibile.
 
-In JavaFX si configurano con `setSpacing(...)`, `setPadding(new Insets(...))` e `setAlignment(...)`
-sui contenitori che li supportano.
+In JavaFX queste proprietà si impostano rispettivamente tramite `setSpacing(...)`, `setPadding(new Insets(...))` e `setAlignment(...)`
+sui contenitori che le supportano.
 
 ![Confronto fra padding, spacing e allineamento TOP_CENTER in un VBox](layout-properties.svg)
 
-Per il form, usare l'allineamento `Pos.TOP_CENTER`.
+Per il form si utilizzi l'allineamento `Pos.TOP_CENTER`.
 
-![Checkpoint 2A: form nella parte sinistra e area centrale vuota](checkpoint-form.png)
+![Sottoesercizio 2A: form nella parte sinistra e area centrale vuota](checkpoint-form.png)
 
-**Checkpoint:** titolo, campo e pulsante sono visibili in verticale, separati da uno spazio e distanziati dai bordi. Il campo accetta testo; premere Add non aggiunge task.
+**Verifica intermedia:** il titolo, il campo di testo e il pulsante devono apparire in verticale,
+ben distanziati sia tra loro sia rispetto ai bordi della finestra.
+Nel campo è possibile scrivere del testo,
+mentre la pressione di "Add" non produce ancora alcun effetto.
 
 ## 2B — Le colonne dei task
 
-Completare `createTasksPane()` nell'area centrale, mantenendo il form della prima tappa. Aggiungere un'intestazione “Tasks” e, sotto, due colonne affiancate:
+Mantenendo il form realizzato nella prima parte,
+si completi ora il metodo `createTasksPane()` per popolare l'area centrale della finestra.
+Questo pannello deve presentare un'intestazione "Tasks" seguita,
+più in basso,
+da due colonne affiancate:
 
-- **Todo:** intestazione e due task, “Task 1” e “Task 2”. Ogni riga contiene il testo e un pulsante “X”. Completare `createTaskSection(String content)` per costruire entrambe le righe.
-- **Done:** intestazione e il testo “Task 3”, disabilitato e senza pulsante.
+- **Todo:** contiene la relativa intestazione e due attività di esempio, "Task 1" e "Task 2", ciascuna formata dal testo e da un pulsante "X" sulla stessa riga. A tal fine si completi e si riutilizzi il metodo `createTaskSection(String content)`.
+- **Done:** contiene l'intestazione e un'unica attività completata, "Task 3", mostrata come testo disabilitato e priva di pulsante.
 
-Inserire i tre task direttamente nel codice. Scegliere come combinare i contenitori per ottenere la struttura mostrata.
+I tre task vanno inseriti direttamente nel codice, lasciando allo studente la scelta di come combinare i contenitori per ottenere la disposizione illustrata in figura.
 
-![Checkpoint 2B: form e due colonne con task statici](schema.png)
+![Sottoesercizio 2B: form e due colonne con task statici](schema.png)
 
-**Checkpoint:** le colonne sono affiancate, i task di ciascuna colonna sono in verticale e il testo del task completato appare disabilitato. I pulsanti X non modificano i task.
+**Verifica finale:** le due colonne devono risultare affiancate, con i rispettivi task disposti in verticale e il testo dell'attività completata visualizzato come disabilitato. Anche in questo caso, la pressione dei pulsanti "X" non deve modificare i task.
 
-Conta la struttura della GUI: non è richiesta una riproduzione esatta delle misure o delle distanze dello screenshot.
-
-## Estensione: ridimensionare la finestra
-
-Allargare e restringere la finestra: quali aree cambiano dimensione? Come si distribuisce lo spazio fra le colonne? Provare a distribuire fra le due colonne lo spazio orizzontale disponibile, senza ricorrere a coordinate fisse.
-
-Questa parte è facoltativa; i due checkpoint precedenti costituiscono l'esercizio base.
+Ai fini dell'esercizio è importante la corretta struttura dei contenitori, mentre non è richiesta una riproduzione identica delle dimensioni o delle spaziature mostrate nell'immagine.
 
 ## Avvio
 
-Dalla root: `./gradlew :javafx-2-layouts:run` (Windows: `.\gradlew.bat :javafx-2-layouts:run`).
+Per avviare l'applicazione dalla cartella principale del progetto, eseguire `./gradlew :javafx-2-layouts:run` (oppure `.\gradlew.bat :javafx-2-layouts:run` su Windows).
