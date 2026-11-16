@@ -1,9 +1,7 @@
 package it.unibo.javafx;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import javafx.geometry.Insets;
@@ -20,7 +18,7 @@ public class App extends Application {
 
     @Override
     public final void start(final Stage primaryStage) throws Exception {
-        // Layout from Exercise 2
+        // GUI predisposta dal secondo esercizio: i contenitori dei task partono vuoti.
         BorderPane root = new BorderPane();
 
         VBox leftPane = new VBox();
@@ -66,7 +64,7 @@ public class App extends Application {
         root.setLeft(leftPane);
         root.setCenter(rightPane);
 
-        // Logic wiring
+        // Step 3B: collegare la GUI al modello e al controller.
         TodoAppObservable model = new TodoAppImpl();
         TodoAppHandler handler = new TodoAppHandler(model, newTaskField, todoItems, doneItems);
 

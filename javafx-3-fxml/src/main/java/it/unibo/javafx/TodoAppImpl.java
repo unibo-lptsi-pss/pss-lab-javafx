@@ -26,6 +26,7 @@ public class TodoAppImpl implements TodoAppObservable  {
         return completedTodos;
     }
 
+    // Step 3A: aggiungere il task alla lista dei task da fare.
     @Override
     public Todo addNewTodo(String content) {
         Todo newTodo = new Todo(content);
@@ -33,7 +34,7 @@ public class TodoAppImpl implements TodoAppObservable  {
         return newTodo;
     }
 
-    // usa remove per eliminare un todo dalla lista dei todos e aggiungerlo alla lista dei completedTodos
+    // Step 3A: spostare il task fra i completati solo se è fra quelli da fare.
     @Override
     public void completeTodo(Todo todo) {
         if (this.todos.remove(todo)) {
