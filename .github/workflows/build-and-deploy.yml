@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '25'
+          java-version: '26'
       - name: Setup Gradle and validate wrapper
         uses: gradle/actions/setup-gradle@v6
       - name: Build all exercises
