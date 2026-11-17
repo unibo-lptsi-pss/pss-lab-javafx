@@ -2,15 +2,6 @@
 
 Questo repository raccoglie gli esercizi di laboratorio su JavaFX dedicati a proprietà osservabili e binding, layout, gestione degli eventi e separazione tra modello, vista e controller (MVC), in riferimento alle [slide del corso](https://unibo-lptsi-pss.github.io/22-gui/#/).
 
-## Requisiti
-
-- **JDK 25**, utilizzato sia per eseguire Gradle sia per compilare e avviare gli esercizi.
-- **Gradle 9.9.1**, incluso tramite il wrapper del progetto, perciò non è necessario installarlo separatamente.
-- **JavaFX 25**, scaricato automaticamente da Maven Central.
-- Una sessione grafica attiva per poter visualizzare ed eseguire le applicazioni.
-
-Prima di iniziare, assicurarsi che la variabile d'ambiente `JAVA_HOME` punti alla cartella del JDK 25 e che nell'IDE sia selezionato lo stesso JDK come JVM per Gradle. È possibile verificare la configurazione eseguendo `./gradlew --version` (oppure `.\gradlew.bat --version` su Windows). Al primo avvio è necessaria una connessione a Internet per scaricare Gradle e le relative dipendenze.
-
 ## Struttura del progetto
 
 Il progetto utilizza un unico wrapper Gradle nella cartella principale ed è articolato in quattro sottoprogetti, dichiarati in `settings.gradle.kts`:
