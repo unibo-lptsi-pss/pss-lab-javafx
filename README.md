@@ -43,16 +43,7 @@ Su Windows, da PowerShell:
 
 Poiché gli esercizi contengono intenzionalmente metodi da completare e interfacce parziali, la sola compilazione (eseguibile senza i test tramite `./gradlew assemble`) non implica che gli esercizi siano già risolti. Nel progetto è inoltre configurato JUnit e il modulo `javafx-3-mvc` include una suite di test di unità per il modello, destinata a fallire finché i relativi metodi non vengono implementati.
 
-Per generare ed eseguire il JAR autonomo dell'ultimo esercizio è possibile usare i comandi:
-
-```shell
-./gradlew :javafx-3-mvc:shadowJar
-java -jar javafx-3-mvc/build/libs/javafx-3-mvc-all.jar
-```
-
 I task `run`, gli script di avvio delle distribuzioni e il manifest del JAR eseguibile sono già predisposti per abilitare l'accesso nativo richiesto da JavaFX su JDK 25.
 
-L'integrazione continua (CI) verifica automaticamente il wrapper Gradle e la compilazione di tutti gli esercizi su Windows, macOS e Linux con JDK 25.
-Sul branch `solution` vengono eseguiti anche i test, mentre su `master` viene verificata soltanto la loro compilazione, poiché gli esercizi sono ancora da completare.
-
 Per chiarimenti o domande, non esitate a chiamare i docenti.
+Nel branch `solution` trovate gli esercizi completati (vi chiediamo di guardarci dopo la lezione).
